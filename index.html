@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Follow-You-Print Setup Guide | VISTEC</title>
+  <!-- Typography based on ui-ux-pro-max: Inter + Sarabun -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+
+<body data-lang="en">
+
+  <!-- Top Global Navbar -->
+  <nav class="top-navbar" aria-label="Global Navigation">
+    <div class="top-navbar-container">
+      <a href="#" class="brand-identity">
+        <span>Printer Setup Guide</span>
+      </a>
+
+      <!-- Right Nav Controls: Report Issue & Lang Toggle -->
+      <div class="nav-controls">
+        <a href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=sIaY0gKGRku-CZfbqb_G3-QULG4UI9FKjXYfzvxasUBURERMT1FXTlZXOE4zSVZGWDk3WkhSRUg3Ny4u&route=shorturl"
+          target="_blank" rel="noopener noreferrer" class="btn-action-copy btn-support">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+          <span>
+            <span class="lang-th">ช่วยเหลือ</span>
+            <span class="lang-en">Support</span>
+          </span>
+        </a>
+
+        <!-- EN / TH Language Toggle -->
+        <div class="lang-switcher" role="group" aria-label="Language selector">
+          <button class="lang-btn active" data-lang-btn="en" onclick="switchLanguage('en')"
+            aria-pressed="true">EN</button>
+          <button class="lang-btn" data-lang-btn="th" onclick="switchLanguage('th')" aria-pressed="false">TH</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content Container -->
+  <main class="content-wrapper">
+
+    <!-- Segment Tab Controller -->
+    <div class="segment-control" role="tablist" aria-label="Operating system selection">
+      <button class="segment-btn active" data-tab="windows" onclick="switchTab('windows')" role="tab"
+        aria-selected="true" aria-controls="windows" tabindex="0" id="tab-windows">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.949-1.999" />
+        </svg>
+        <span>Windows</span>
+      </button>
+
+      <button class="segment-btn" data-tab="mac" onclick="switchTab('mac')" role="tab" aria-selected="false"
+        aria-controls="mac" tabindex="-1" id="tab-mac">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.2c.62-.75 1.04-1.8 0.92-2.85-.9.04-1.98.6-2.61 1.34-.56.64-.99 1.68-.86 2.7 1.01.08 2.03-.51 2.55-1.19z" />
+        </svg>
+        <span>macOS</span>
+      </button>
+
+      <button class="segment-btn" data-tab="card" onclick="switchTab('card')" role="tab" aria-selected="false"
+        aria-controls="card" tabindex="-1" id="tab-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+          <line x1="2" y1="10" x2="22" y2="10"></line>
+        </svg>
+        <span>Card Registration</span>
+      </button>
+    </div>
+
+    <!-- ================= WINDOWS TAB ================= -->
+    <div id="windows" class="tab-pane active" role="tabpanel" aria-labelledby="tab-windows">
+
+      <!-- Step 1 -->
+      <article class="step-container">
+        <div class="step-header">
+          <span class="step-number">Step 01</span>
+          <div class="step-header-text">
+            <h3>
+              <span class="lang-th">เปิดหน้าต่าง Run เพื่อเข้าถึง Print Server</span>
+              <span class="lang-en">Open Run Dialog to Access Print Server</span>
+            </h3>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="step-instruction">
+            <div class="lang-th">
+              <ol>
+                <li>กดปุ่มคีย์ลัด <strong>Windows + R</strong> บนคีย์บอร์ดเพื่อเปิดหน้าต่าง Run</li>
+                <li>พิมพ์ที่อยู่เครือข่าย <code>\\10.204.24.244</code> แล้วคลิก <strong>OK</strong></li>
+              </ol>
+            </div>
+            <div class="lang-en">
+              <ol>
+                <li>Press the shortcut key <strong>Windows + R</strong> on your keyboard to open the Run dialog.</li>
+                <li>Type network address <code>\\10.204.24.244</code> and click <strong>OK</strong>.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="code-action-box">
+            <code id="winRunPath">\\10.204.24.244</code>
+            <button class="btn-action-copy" onclick="copyText('winRunPath', this)">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span><span class="lang-th">คัดลอก</span><span class="lang-en">Copy</span></span>
+            </button>
+          </div>
+
+          <figure class="doc-figure fig-dialog">
+            <img src="assets/images/win_step1_run.png" alt="Run dialog with server address" width="566" height="334" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 1.1: หน้าต่าง Run ระบุที่อยู่เซิร์ฟเวอร์ (คลิกเพื่อดูภาพขยาย)</span>
+              <span class="lang-en">Figure 1.1: Run dialog with server address (Click to enlarge)</span>
+            </figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- Step 2 -->
+      <article class="step-container">
+        <div class="step-header">
+          <span class="step-number">Step 02</span>
+          <div class="step-header-text">
+            <h3>
+              <span class="lang-th">ยืนยันตัวตนด้วยบัญชี VISTEC Account</span>
+              <span class="lang-en">Authenticate with VISTEC Credentials</span>
+            </h3>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="step-instruction">
+            <div class="lang-th">
+              <ol>
+                <li>ในช่อง <strong>User name</strong>: กรอกชื่อผู้ใช้ตามด้วยโดเมน เช่น <code>vistec\yourname.s</code>
+                  (ต้องมี <code>vistec\</code> นำหน้าเสมอ)</li>
+                <li>ในช่อง <strong>Password</strong>: กรอกรหัสผ่านบัญชี VISTEC</li>
+                <li>ทำเครื่องหมายถูกที่ช่อง <strong>Remember my credentials</strong> เพื่อบันทึกการเข้าสู่ระบบ</li>
+                <li>คลิกปุ่ม <strong>OK</strong></li>
+              </ol>
+            </div>
+            <div class="lang-en">
+              <ol>
+                <li>In <strong>User name</strong>: Enter username with domain prefix, e.g.,
+                  <code>vistec\yourname.s</code> (always prefix with <code>vistec\</code>).
+                </li>
+                <li>In <strong>Password</strong>: Enter your VISTEC account password.</li>
+                <li>Check the box <strong>Remember my credentials</strong> to save credentials.</li>
+                <li>Click <strong>OK</strong>.</li>
+              </ol>
+            </div>
+          </div>
+
+          <figure class="doc-figure fig-dialog">
+            <img src="assets/images/win_step2_auth.png" alt="Windows Security prompt with credentials saved" width="1024" height="716" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 1.2: หน้าต่าง Windows Security ติ๊ก Remember my credentials</span>
+              <span class="lang-en">Figure 1.2: Windows Security prompt with credentials saved</span>
+            </figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- Step 3 -->
+      <article class="step-container">
+        <div class="step-header">
+          <span class="step-number">Step 03</span>
+          <div class="step-header-text">
+            <h3>
+              <span class="lang-th">เชื่อมต่อเครื่องพิมพ์ Follow-you-print</span>
+              <span class="lang-en">Connect to Follow-you-print Queue</span>
+            </h3>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="step-instruction">
+            <div class="lang-th">
+              <ol>
+                <li>เมื่อหน้าต่างโฟลเดอร์เซิร์ฟเวอร์เปิดขึ้นมา ให้ค้นหาไอคอนเครื่องพิมพ์
+                  <strong>Follow-you-print</strong>
+                </li>
+                <li>คลิกขวาที่ <strong>Follow-you-print</strong> แล้วเลือกเมนู <strong>Connect...</strong></li>
+                <li>ระบบ Windows จะทำการดาวน์โหลดและลงทะเบียนไดรเวอร์โดยอัตโนมัติ</li>
+              </ol>
+            </div>
+            <div class="lang-en">
+              <ol>
+                <li>In the opened server folder window, locate <strong>Follow-you-print</strong> printer icon.</li>
+                <li>Right-click on <strong>Follow-you-print</strong> and choose <strong>Connect...</strong></li>
+                <li>Windows will automatically download and register the driver.</li>
+              </ol>
+            </div>
+          </div>
+
+          <figure class="doc-figure fig-folder">
+            <img src="assets/images/win_step3_connect.png" alt="Right-click Follow-you-print and select Connect" width="1024" height="349" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 1.3: คลิกขวาที่ Follow-you-print แล้วเลือก Connect</span>
+              <span class="lang-en">Figure 1.3: Right-click Follow-you-print and select Connect</span>
+            </figcaption>
+          </figure>
+
+          <div class="doc-alert doc-alert-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <div>
+              <span class="lang-th"><strong>การสั่งพิมพ์งาน:</strong> เลือกเครื่องพิมพ์ชื่อ
+                <code>Follow-you-print on 10.204.24.244</code> เมื่อส่งงานพิมพ์แล้ว
+                สามารถไปแตะบัตรเพื่อสั่งปล่อยเอกสารที่เครื่องพิมพ์ Xerox ได้ทุกจุดในอาคาร</span>
+              <span class="lang-en"><strong>Printing:</strong> Select printer
+                <code>Follow-you-print on 10.204.24.244</code>. After sending your print job, simply tap your ID card at
+                any Xerox multifunction printer across campus to release your documents.</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- ================= MAC TAB ================= -->
+    <div id="mac" class="tab-pane" role="tabpanel" aria-labelledby="tab-mac">
+
+      <article class="step-container">
+        <div class="step-header">
+          <span class="step-number">Step 01</span>
+          <div class="step-header-text">
+            <h3>
+              <span class="lang-th">เปิดหน้าต่าง Connect to Server</span>
+              <span class="lang-en">Open Connect to Server</span>
+            </h3>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="step-instruction">
+            <div class="lang-th">
+              <ol>
+                <li>เปิด <strong>Finder</strong> (ไอคอนหน้ายิ้มบน Dock) หรือคลิกขวาที่ไอคอน Finder แล้วเลือก
+                  <strong>Connect to Server...</strong>
+                </li>
+                <li>หรือที่แถบเมนูด้านบนให้คลิก <strong>Go</strong> &gt; <strong>Connect to Server...</strong> (คีย์ลัด
+                  <code>Command + K</code>)
+                </li>
+                <li>ในช่อง Server Address พิมพ์ <code>smb://10.204.24.244</code> แล้วคลิก <strong>Connect</strong></li>
+              </ol>
+            </div>
+            <div class="lang-en">
+              <ol>
+                <li>Open <strong>Finder</strong> (smiley-face icon on the Dock), or right-click the Finder icon and
+                  choose <strong>Connect to Server...</strong>.</li>
+                <li>Alternatively, in the top menu bar click <strong>Go</strong> &gt; <strong>Connect to
+                    Server...</strong> (shortcut <code>Command + K</code>).</li>
+                <li>In the Server Address field type <code>smb://10.204.24.244</code> and click
+                  <strong>Connect</strong>.
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="code-action-box">
+            <code id="macSmbPath">smb://10.204.24.244</code>
+            <button class="btn-action-copy" onclick="copyText('macSmbPath', this)">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span><span class="lang-th">คัดลอก</span><span class="lang-en">Copy</span></span>
+            </button>
+          </div>
+
+          <figure class="doc-figure fig-menu">
+            <img src="assets/images/mac_n01.png" alt="Right-click Finder on the Dock and choose Connect to Server..." width="660" height="657" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.1: คลิกขวาที่ไอคอน Finder บน Dock แล้วเลือก Connect to Server...</span>
+              <span class="lang-en">Figure 2.1: Right-click Finder on the Dock and choose Connect to Server...</span>
+            </figcaption>
+          </figure>
+
+          <figure class="doc-figure fig-folder">
+            <img src="assets/images/mac_n02.png" alt="Go menu &gt; Connect to Server... (Cmd + K)" width="558" height="445" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.2: เมนู Go &gt; Connect to Server... (Cmd + K)</span>
+              <span class="lang-en">Figure 2.2: Go menu &gt; Connect to Server... (Cmd + K)</span>
+            </figcaption>
+          </figure>
+
+          <figure class="doc-figure fig-dialog">
+            <img src="assets/images/mac_n03.png" alt="Type the server address smb://10.204.24.244 and click Connect" width="505" height="258" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.3: พิมพ์ที่อยู่เซิร์ฟเวอร์ smb://10.204.24.244 แล้วคลิก Connect</span>
+              <span class="lang-en">Figure 2.3: Type the server address smb://10.204.24.244 and click Connect</span>
+            </figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="step-container">
+        <div class="step-header">
+          <span class="step-number">Step 02</span>
+          <div class="step-header-text">
+            <h3>
+              <span class="lang-th">ยืนยันตัวตนและเลือกโฟลเดอร์ Driver MAC</span>
+              <span class="lang-en">Authenticate and Mount Driver MAC</span>
+            </h3>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="step-instruction">
+            <div class="lang-th">
+              <ol>
+                <li>เมื่อมีหน้าต่างยืนยัน <em>You are attempting to connect to the server</em> ให้คลิก
+                  <strong>Connect</strong>
+                </li>
+                <li>เลือก <strong>Registered User</strong> กรอก Username และ Password บัญชี VISTEC (ตัวอย่าง
+                  <code>user.n</code>)
+                </li>
+                <li>ติ๊ก <em>Remember this password in my keychain</em> แล้วคลิก <strong>Connect</strong></li>
+                <li>ที่หน้าต่างเลือก Volume ให้เลือก <strong>Driver MAC</strong> แล้วคลิก <strong>OK</strong></li>
+              </ol>
+            </div>
+            <div class="lang-en">
+              <ol>
+                <li>When the <em>You are attempting to connect to the server</em> confirmation appears, click
+                  <strong>Connect</strong>.
+                </li>
+                <li>Select <strong>Registered User</strong> and enter your VISTEC Username and Password (e.g.
+                  <code>user.n</code>).
+                </li>
+                <li>Check <em>Remember this password in my keychain</em> and click <strong>Connect</strong>.</li>
+                <li>In the volume selection window choose <strong>Driver MAC</strong> and click <strong>OK</strong>.
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <figure class="doc-figure fig-dialog">
+            <img src="assets/images/mac_n04.png" alt="Confirm the server connection" width="472" height="340" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.4: ยืนยันการเชื่อมต่อเซิร์ฟเวอร์</span>
+              <span class="lang-en">Figure 2.4: Confirm the server connection</span>
+            </figcaption>
+          </figure>
+
+          <figure class="doc-figure fig-dialog">
+            <img src="assets/images/mac_n05.png" alt="Enter your VISTEC username and password" width="483" height="339" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.5: กรอกชื่อผู้ใช้และรหัสผ่านบัญชี VISTEC</span>
+              <span class="lang-en">Figure 2.5: Enter your VISTEC username and password</span>
+            </figcaption>
+          </figure>
+
+          <figure class="doc-figure fig-dialog">
+            <img src="assets/images/mac_n06.png" alt="Select the Driver MAC volume and click OK" width="440" height="383" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.6: เลือกโฟลเดอร์ Driver MAC แล้วคลิก OK</span>
+              <span class="lang-en">Figure 2.6: Select the Driver MAC volume and click OK</span>
+            </figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="step-container">
+        <div class="step-header">
+          <span class="step-number">Step 03</span>
+          <div class="step-header-text">
+            <h3>
+              <span class="lang-th">เปิดไฟล์ติดตั้ง Driver</span>
+              <span class="lang-en">Locate the Driver Installer</span>
+            </h3>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="step-instruction">
+            <div class="lang-th">
+              <ol>
+                <li>หน้าต่าง Finder ของ <strong>Driver MAC</strong> จะเปิดขึ้น แนะนำให้เลือกโฟลเดอร์
+                  <code>Mac OS 26.0 above</code> ถึงแม้จะเป็นรุ่นที่เก่ากว่า หากลงแล้วติดปัญหาค่อยลง Version เก่า
+                </li>
+                <li>เปิดโฟลเดอร์นั้น จะพบไฟล์ <code>.dmg</code> ดับเบิลคลิกเพื่อเปิด</li>
+                <li>ดับเบิลคลิกไฟล์ติดตั้ง <code>.pkg</code> (<em>FUJIFILM Print Driver for Mac OS X Installer</em>)
+                  เพื่อเริ่มติดตั้ง</li>
+              </ol>
+            </div>
+            <div class="lang-en">
+              <ol>
+                <li>The <strong>Driver MAC</strong> Finder window opens. It is recommended to choose
+                  <code>Mac OS 26.0 above</code> even on older macOS versions; install older driver versions only if you
+                  encounter issues.
+                </li>
+                <li>Open that folder and double-click the <code>.dmg</code> file to mount it.</li>
+                <li>Double-click the <code>.pkg</code> installer (<em>FUJIFILM Print Driver for Mac OS X Installer</em>)
+                  to start installing.</li>
+              </ol>
+            </div>
+          </div>
+
+          <figure class="doc-figure fig-folder">
+            <img src="assets/images/mac_n07.png" alt="Driver MAC folders on the Print Server" width="945" height="473" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.7: โฟลเดอร์ Driver MAC บน Print Server</span>
+              <span class="lang-en">Figure 2.7: Driver MAC folders on the Print Server</span>
+            </figcaption>
+          </figure>
+
+          <figure class="doc-figure fig-folder">
+            <img src="assets/images/mac_n08.png" alt="Installer files inside the macOS version folder" width="945" height="462" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.8: ไฟล์ติดตั้งภายในโฟลเดอร์ของเวอร์ชัน macOS</span>
+              <span class="lang-en">Figure 2.8: Installer files inside the macOS version folder</span>
+            </figcaption>
+          </figure>
+
+          <figure class="doc-figure fig-folder">
+            <img src="assets/images/mac_n09.png" alt="FUJIFILM Print Driver installer package (.pkg)" width="932" height="451" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.9: ไฟล์ติดตั้งแพ็กเกจ FUJIFILM Print Driver (.pkg)</span>
+              <span class="lang-en">Figure 2.9: FUJIFILM Print Driver installer package (.pkg)</span>
+            </figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="step-container">
+        <div class="step-header">
+          <span class="step-number">Step 04</span>
+          <div class="step-header-text">
+            <h3>
+              <span class="lang-th">ติดตั้ง Driver เครื่องพิมพ์</span>
+              <span class="lang-en">Run the Driver Installer</span>
+            </h3>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="step-instruction">
+            <div class="lang-th">
+              <ol>
+                <li>หน้า <strong>Introduction</strong> คลิก <strong>Continue</strong></li>
+                <li>หน้า <strong>License</strong> คลิก <strong>Continue</strong> แล้วคลิก <strong>Agree</strong>
+                  เพื่อยอมรับข้อตกลง</li>
+                <li>หน้า <strong>Installation Type</strong> คลิก <strong>Install</strong></li>
+                <li>กรอกรหัสผ่านเครื่อง Mac (Username/Password ของผู้ดูแลเครื่อง) แล้วคลิก <strong>Install
+                    Software</strong></li>
+                <li>เมื่อขึ้น <em>The installation was successful</em> คลิก <strong>Close</strong></li>
+              </ol>
+            </div>
+            <div class="lang-en">
+              <ol>
+                <li>On the <strong>Introduction</strong> page click <strong>Continue</strong>.</li>
+                <li>On the <strong>License</strong> page click <strong>Continue</strong>, then <strong>Agree</strong> to
+                  accept the terms.</li>
+                <li>On the <strong>Installation Type</strong> page click <strong>Install</strong>.</li>
+                <li>Enter your Mac administrator Username/Password and click <strong>Install Software</strong>.</li>
+                <li>When <em>The installation was successful</em> appears, click <strong>Close</strong>.</li>
+              </ol>
+            </div>
+          </div>
+
+          <figure class="doc-figure fig-folder">
+            <img src="assets/images/mac_n10.png" alt="Installer Introduction page" width="637" height="463" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.10: หน้า Introduction ของตัวติดตั้ง</span>
+              <span class="lang-en">Figure 2.10: Installer Introduction page</span>
+            </figcaption>
+          </figure>
+
+          <figure class="doc-figure fig-folder">
+            <img src="assets/images/mac_n11.png" alt="License page — click Continue" width="636" height="459" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.11: หน้า License — คลิก Continue</span>
+              <span class="lang-en">Figure 2.11: License page — click Continue</span>
+            </figcaption>
+          </figure>
+
+          <figure class="doc-figure fig-folder">
+            <img src="assets/images/mac_n12.png" alt="Click Agree to accept the license" width="635" height="462" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.12: คลิก Agree เพื่อยอมรับข้อตกลง</span>
+              <span class="lang-en">Figure 2.12: Click Agree to accept the license</span>
+            </figcaption>
+          </figure>
+
+          <figure class="doc-figure fig-folder">
+            <img src="assets/images/mac_n13.png" alt="Installation Type page — click Install" width="642" height="462" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.13: หน้า Installation Type — คลิก Install</span>
+              <span class="lang-en">Figure 2.13: Installation Type page — click Install</span>
+            </figcaption>
+          </figure>
+
+          <figure class="doc-figure fig-dialog">
+            <img src="assets/images/mac_n14.png" alt="Enter your Mac password to allow the installation" width="462" height="224" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.14: กรอกรหัสผ่านเครื่อง Mac เพื่ออนุญาตการติดตั้ง</span>
+              <span class="lang-en">Figure 2.14: Enter your Mac password to allow the installation</span>
+            </figcaption>
+          </figure>
+
+          <figure class="doc-figure fig-folder">
+            <img src="assets/images/mac_n15.png" alt="Installation successful — click Close" width="635" height="460" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.15: ติดตั้งสำเร็จ — คลิก Close</span>
+              <span class="lang-en">Figure 2.15: Installation successful — click Close</span>
+            </figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="step-container">
+        <div class="step-header">
+          <span class="step-number">Step 05</span>
+          <div class="step-header-text">
+            <h3>
+              <span class="lang-th">เปิดหน้า Add Printer และเพิ่มแท็บ Advanced</span>
+              <span class="lang-en">Open Add Printer and Enable Advanced Tab</span>
+            </h3>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="step-instruction">
+            <div class="lang-th">
+              <ol>
+                <li>ไปที่ <strong>System Settings</strong> (หรือ System Preferences) &gt; <strong>Printers &amp;
+                    Scanners</strong></li>
+                <li>คลิกปุ่ม <code>+</code> (<strong>Add Printer, Scanner, or Fax...</strong>)</li>
+                <li>หากยังไม่มีไอคอน <strong>Advanced</strong> บนแถบเครื่องมือ: คลิกขวาที่แถบเครื่องมือ เลือก
+                  <strong>Customize Toolbar...</strong>
+                </li>
+                <li>ลากไอคอน <strong>Advanced</strong> (รูปเฟืองคู่) ไปวางบนแถบเครื่องมือ แล้วคลิก <strong>Done</strong>
+                </li>
+              </ol>
+            </div>
+            <div class="lang-en">
+              <ol>
+                <li>Go to <strong>System Settings</strong> (or System Preferences) &gt; <strong>Printers &amp;
+                    Scanners</strong>.</li>
+                <li>Click the <code>+</code> button (<strong>Add Printer, Scanner, or Fax...</strong>).</li>
+                <li>If the <strong>Advanced</strong> icon is not in the toolbar: right-click the toolbar and choose
+                  <strong>Customize Toolbar...</strong>.
+                </li>
+                <li>Drag the <strong>Advanced</strong> icon (double gear) onto the toolbar, then click
+                  <strong>Done</strong>.
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <figure class="doc-figure fig-folder">
+            <img src="assets/images/mac_n16.png" alt="Printers &amp; Scanners — click + to add a printer" width="693" height="475" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.16: หน้า Printers &amp; Scanners — คลิก + เพื่อเพิ่มเครื่องพิมพ์</span>
+              <span class="lang-en">Figure 2.16: Printers &amp; Scanners — click + to add a printer</span>
+            </figcaption>
+          </figure>
+
+          <figure class="doc-figure fig-dialog">
+            <img src="assets/images/mac_add_advanced.gif" alt="How to add the Advanced icon to the Toolbar (Right-click &gt; Customize Toolbar &gt; Drag Advanced &gt; Done)" width="776" height="718" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.17: วิธีเพิ่มไอคอน Advanced ลงบน Toolbar (คลิกขวา &gt; Customize Toolbar
+                &gt; ลาก Advanced &gt; Done)</span>
+              <span class="lang-en">Figure 2.17: How to add the Advanced icon to the Toolbar (Right-click &gt; Customize
+                Toolbar &gt; Drag Advanced &gt; Done)</span>
+            </figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="step-container">
+        <div class="step-header">
+          <span class="step-number">Step 06</span>
+          <div class="step-header-text">
+            <h3>
+              <span class="lang-th">กรอกข้อมูลในแท็บ Advanced</span>
+              <span class="lang-en">Fill In the Advanced Tab</span>
+            </h3>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="step-instruction">
+            <div class="lang-th">
+              <ol>
+                <li>คลิกแท็บ <strong>Advanced</strong> ที่ช่อง <strong>Type:</strong> เลือก <strong>Windows printer via
+                    spoolss</strong></li>
+                <li>ช่อง <strong>Device:</strong> เลือก <strong>Another Device</strong></li>
+                <li>ช่อง <strong>URL:</strong> วางที่อยู่ตามกล่องด้านล่าง</li>
+                <li>ช่อง <strong>Name:</strong> พิมพ์ <code>VISTEC Printer</code> (หรือชื่อที่ต้องการ)</li>
+              </ol>
+            </div>
+            <div class="lang-en">
+              <ol>
+                <li>Click the <strong>Advanced</strong> tab. Set <strong>Type:</strong> to <strong>Windows printer via
+                    spoolss</strong>.</li>
+                <li>Set <strong>Device:</strong> to <strong>Another Device</strong>.</li>
+                <li>In <strong>URL:</strong> paste the address from the box below.</li>
+                <li>In <strong>Name:</strong> type <code>VISTEC Printer</code> (or any name you prefer).</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="code-action-box">
+            <code id="macPrinterUrl">smb://10.204.24.244/Follow-you-print?encryption=no</code>
+            <button class="btn-action-copy" onclick="copyText('macPrinterUrl', this)">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span><span class="lang-th">คัดลอก</span><span class="lang-en">Copy</span></span>
+            </button>
+          </div>
+
+          <div class="doc-alert doc-alert-warning">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+              <line x1="12" y1="9" x2="12" y2="13"></line>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            <div>
+              <span class="lang-th"><strong>ข้อกำหนดสำคัญ:</strong> ส่วนท้าย URL ต้องระบุพารามิเตอร์
+                <code>?encryption=no</code> เสมอ เพื่อป้องกันปัญหาค้างสถานะ Hold for Authentication</span>
+              <span class="lang-en"><strong>Critical Requirement:</strong> The URL must end with
+                <code>?encryption=no</code> to prevent the print queue from getting stuck on "Hold for
+                Authentication".</span>
+            </div>
+          </div>
+
+          <figure class="doc-figure fig-dialog">
+            <img src="assets/images/mac_n20.png" alt="Choose Type: Windows printer via spoolss" width="563" height="518" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.18: เลือก Type: Windows printer via spoolss</span>
+              <span class="lang-en">Figure 2.18: Choose Type: Windows printer via spoolss</span>
+            </figcaption>
+          </figure>
+
+          <figure class="doc-figure fig-dialog">
+            <img src="assets/images/mac_n21.png" alt="Device: Another Device and enter the URL" width="565" height="516" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.19: Device: Another Device และกรอก URL</span>
+              <span class="lang-en">Figure 2.19: Device: Another Device and enter the URL</span>
+            </figcaption>
+          </figure>
+
+          <figure class="doc-figure fig-dialog">
+            <img src="assets/images/mac_n22.png" alt="Enter the Name, then choose Use &gt; Select Software..." width="571" height="580" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.20: กรอก Name แล้วเลือก Use &gt; Select Software...</span>
+              <span class="lang-en">Figure 2.20: Enter the Name, then choose Use &gt; Select Software...</span>
+            </figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="step-container">
+        <div class="step-header">
+          <span class="step-number">Step 07</span>
+          <div class="step-header-text">
+            <h3>
+              <span class="lang-th">เลือก Driver และเพิ่มเครื่องพิมพ์</span>
+              <span class="lang-en">Select the Driver and Add the Printer</span>
+            </h3>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="step-instruction">
+            <div class="lang-th">
+              <ol>
+                <li>ในหน้าต่าง Printer Software พิมพ์ค้นหา <code>3371</code></li>
+                <li>เลือก <strong>FF K529t for ApeosPort-VI C3371 PS</strong> แล้วคลิก <strong>OK</strong></li>
+                <li>ตรวจสอบว่าช่อง Use แสดงชื่อไดรเวอร์ที่เลือก แล้วคลิก <strong>Add</strong></li>
+                <li>หากมีหน้าต่างตั้งค่า Options (เช่น Paper Tray Configuration) ให้ตรวจสอบค่าแล้วคลิก
+                  <strong>OK</strong>
+                </li>
+              </ol>
+            </div>
+            <div class="lang-en">
+              <ol>
+                <li>In the Printer Software window search for <code>3371</code>.</li>
+                <li>Select <strong>FF K529t for ApeosPort-VI C3371 PS</strong> and click <strong>OK</strong>.</li>
+                <li>Confirm the Use field shows the chosen driver, then click <strong>Add</strong>.</li>
+                <li>If an Options window appears (e.g. Paper Tray Configuration), review the values and click
+                  <strong>OK</strong>.
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <figure class="doc-figure fig-dialog">
+            <img src="assets/images/mac_n23.png" alt="Search 3371 and choose FF K529t for ApeosPort-VI C3371 PS" width="452" height="392" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.21: ค้นหา 3371 และเลือกไดรเวอร์ FF K529t for ApeosPort-VI C3371 PS</span>
+              <span class="lang-en">Figure 2.21: Search 3371 and choose FF K529t for ApeosPort-VI C3371 PS</span>
+            </figcaption>
+          </figure>
+
+          <figure class="doc-figure fig-dialog">
+            <img src="assets/images/mac_n24.png" alt="Review all fields and click Add" width="569" height="515" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.22: ตรวจสอบข้อมูลทั้งหมดแล้วคลิก Add</span>
+              <span class="lang-en">Figure 2.22: Review all fields and click Add</span>
+            </figcaption>
+          </figure>
+
+          <figure class="doc-figure fig-dialog">
+            <img src="assets/images/mac_n25.png" alt="Printer options setup — click OK" width="507" height="389" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.23: หน้าต่างตั้งค่า Options ของเครื่องพิมพ์ — คลิก OK</span>
+              <span class="lang-en">Figure 2.23: Printer options setup — click OK</span>
+            </figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="step-container">
+        <div class="step-header">
+          <span class="step-number">Step 08</span>
+          <div class="step-header-text">
+            <h3>
+              <span class="lang-th">ตรวจสอบและทดสอบการสั่งพิมพ์</span>
+              <span class="lang-en">Verify and Test Printing</span>
+            </h3>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="step-instruction">
+            <div class="lang-th">
+              <ol>
+                <li>กลับไปที่ <strong>Printers &amp; Scanners</strong> จะเห็น <strong>VISTEC Printer</strong> สถานะ Idle
+                </li>
+                <li>ทดลองสั่งพิมพ์เอกสารจากโปรแกรมใดก็ได้ โดยเลือกเครื่องพิมพ์ <strong>VISTEC Printer</strong>
+                  (หรือชื่อที่ตั้งเอาไว้)</li>
+                <li>หากมีกล่องถามรหัสผ่าน ให้กรอก Username และ Password บัญชี VISTEC</li>
+                <li>เมื่อสถานะในคิวการพิมพ์ส่งสำเร็จ สามารถเดินไปที่เครื่องปริ้นเพื่อสั่งพิมพ์จริงได้ทันที</li>
+              </ol>
+            </div>
+            <div class="lang-en">
+              <ol>
+                <li>Return to <strong>Printers &amp; Scanners</strong>; <strong>VISTEC Printer</strong> is listed with
+                  status Idle.</li>
+                <li>Print a test document from any application, selecting <strong>VISTEC Printer</strong> (or the name
+                  you specified).</li>
+                <li>If prompted for credentials, enter your VISTEC username and password.</li>
+                <li>Once the print queue reports completion, you can proceed directly to the physical printer to release
+                  your print job.</li>
+              </ol>
+            </div>
+          </div>
+
+          <figure class="doc-figure fig-folder">
+            <img src="assets/images/mac_n26.png" alt="Printer added — VISTEC Printer shows Idle" width="687" height="474" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.24: เพิ่มเครื่องพิมพ์สำเร็จ — VISTEC Printer สถานะ Idle</span>
+              <span class="lang-en">Figure 2.24: Printer added — VISTEC Printer shows Idle</span>
+            </figcaption>
+          </figure>
+
+          <figure class="doc-figure fig-dialog">
+            <img src="assets/images/mac_n27.png" alt="Print job dispatched successfully to server" width="591" height="301" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 2.25: สถานะคิวการพิมพ์ส่งไปยังเซิร์ฟเวอร์เรียบร้อย</span>
+              <span class="lang-en">Figure 2.25: Print job dispatched successfully to server</span>
+            </figcaption>
+          </figure>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- ================= CARD REGISTER TAB ================= -->
+    <div id="card" class="tab-pane" role="tabpanel" aria-labelledby="tab-card">
+
+      <!-- Step 1 -->
+      <article class="step-container">
+        <div class="step-header">
+          <span class="step-number">Step 01</span>
+          <div class="step-header-text">
+            <h3>
+              <span class="lang-th">แตะบัตรประจำตัวที่ตัวอ่าน (Card Reader)</span>
+              <span class="lang-en">Tap ID Card at the Card Reader</span>
+            </h3>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="step-instruction">
+            <div class="lang-th">
+              <ol>
+                <li>นำบัตรประจำตัวพนักงาน หรือ บัตรนักศึกษา แตะที่กล่อง Card Reader สีขาวด้านขวาของเครื่อง
+                  ถ้าไม่ได้จะขึ้น login failed ให้ทำตามขั้นตอนต่อไป</li>
+                <li>กดปุ่ม <strong>Log In / Out</strong> บนแผงปุ่มกด 1 ครั้ง เพื่อเข้าสู่หน้าจอลงทะเบียนผู้ใช้</li>
+              </ol>
+            </div>
+            <div class="lang-en">
+              <ol>
+                <li>Tap your employee or student ID card onto the white Card Reader located on the right side of the
+                  machine. If unlinked, the screen will indicate login failed; proceed to the next step.</li>
+                <li>Press the <strong>Log In / Out</strong> button on the physical keypad once to enter the user
+                  registration screen.</li>
+              </ol>
+            </div>
+          </div>
+
+          <figure class="doc-figure fig-photo">
+            <img src="assets/images/reg_step1_card.jpg" alt="Tap your ID card onto the Card Reader on the right side" width="1024" height="572" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 3.1: นำบัตรแตะที่กล่อง Card Reader ด้านขวาของเครื่อง</span>
+              <span class="lang-en">Figure 3.1: Tap your ID card onto the Card Reader on the right side</span>
+            </figcaption>
+          </figure>
+
+          <figure class="doc-figure fig-photo">
+            <img src="assets/images/reg_step2_login_button.jpg" alt="Log In / Out button on physical control keypad" width="1024" height="576" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 3.2: ปุ่ม Log In / Out บนแผงควบคุม</span>
+              <span class="lang-en">Figure 3.2: Log In / Out button on physical control keypad</span>
+            </figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <!-- Step 2 -->
+      <article class="step-container">
+        <div class="step-header">
+          <span class="step-number">Step 02</span>
+          <div class="step-header-text">
+            <h3>
+              <span class="lang-th">กรอก Username และ Password เพื่อผูกบัตร</span>
+              <span class="lang-en">Enter Credentials and Bind Card</span>
+            </h3>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="step-instruction">
+            <div class="lang-th">
+              <ol>
+                <li>ให้กรอก <strong>Username</strong> บัญชี VISTEC แล้วกดปุ่ม <strong>Next</strong></li>
+                <li>กรอก <strong>Password</strong> ให้ถูกต้อง แล้วกดปุ่ม <strong>Enter</strong></li>
+                <li>หลังจากที่ Login แล้วจะขึ้น Menu (ดังรูปที่ 3.4) หลังจากนั้นให้ลองแตะบัตรอีกครั้ง ถ้าได้จะขึ้น
+                  <strong>User Details validated.</strong> (ดังรูปที่ 3.5) แต่ถ้าไม่ได้จะขึ้น failed ต้องทำการ login
+                  ใหม่เพื่อลองอีกครั้ง
+                </li>
+              </ol>
+            </div>
+            <div class="lang-en">
+              <ol>
+                <li>Enter your VISTEC <strong>Username</strong> and tap <strong>Next</strong>.</li>
+                <li>Enter your <strong>Password</strong> accurately and press <strong>Enter</strong>.</li>
+                <li>After logging in, the Main Services Menu will appear (Figure 3.4). Then, tap your card again. If
+                  successful, the screen will display <strong>User Details validated.</strong> (Figure 3.5). If it shows
+                  failed, please log in again to retry.</li>
+              </ol>
+            </div>
+          </div>
+
+          <figure class="doc-figure fig-photo">
+            <img src="assets/images/reg_step3_credentials.jpg" alt="Touchscreen prompt to enter Username and Password" width="1024" height="576" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 3.3: หน้าจอกรอก Username และ Password เพื่อผูกบัตร</span>
+              <span class="lang-en">Figure 3.3: Touchscreen prompt to enter Username and Password</span>
+            </figcaption>
+          </figure>
+
+          <figure class="doc-figure fig-photo">
+            <img src="assets/images/reg_step4_menu.jpg" alt="Main Services Menu screen after successful login" width="1024" height="559" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 3.4: หน้าจอเมนูหลักหลังจากเข้าสู่ระบบสำเร็จ</span>
+              <span class="lang-en">Figure 3.4: Main Services Menu screen after successful login</span>
+            </figcaption>
+          </figure>
+
+          <figure class="doc-figure fig-photo">
+            <img src="assets/images/reg_step5_validated.jpg" alt="Screen displays &quot;User Details validated&quot; upon successful card tap" width="1024" height="559" loading="lazy" decoding="async">
+            <figcaption>
+              <span class="lang-th">รูปที่ 3.5: หน้าจอแสดง User Details validated เมื่อแตะบัตรสำเร็จ</span>
+              <span class="lang-en">Figure 3.5: Screen displays "User Details validated" upon successful card tap</span>
+            </figcaption>
+          </figure>
+        </div>
+      </article>
+
+    </div>
+
+  </main>
+  <!-- Lightbox Modal -->
+  <div id="imageModal" class="image-modal" onclick="closeModal()" role="dialog" aria-modal="true"
+    aria-label="Enlarged screenshot" aria-hidden="true">
+    <button class="image-modal-close" onclick="closeModal()" aria-label="Close image modal">&times;</button>
+    <img id="modalImage" src="" alt="Enlarged screenshot">
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+
+</html>

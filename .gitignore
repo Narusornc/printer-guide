@@ -1,0 +1,9 @@
+# Archive and scratch
+_archive/
+*.py
+*.aspx
+
+# OS generated
+Thumbs.db
+Desktop.ini
+.DS_Store
